@@ -55,6 +55,10 @@ def count_words(words):
 
     return word_counts
 
+print(count_words("As I was going to St. Ives"))
+
+
+
 
 def print_words(word_counts):
     """Print words: count from dictionary"""
