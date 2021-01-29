@@ -59,13 +59,13 @@ print(count_words("As I was going to St. Ives"))
 
 
 
-
 def print_words(word_counts):
     """Print words: count from dictionary"""
 
     for word, count in word_counts.items():
         print (word, count)
 
+print_words(word_counts)
 
 # tokens = tokenize('test.txt')
 # word_counts = count_words(tokens)
