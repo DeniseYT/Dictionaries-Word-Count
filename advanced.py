@@ -29,9 +29,9 @@ def word_counts(file):
     return word_counts
 
 # get file from the command line
-filename = sys.argv[0]
+file = sys.argv[1]
 
-word_counts(filename)
+word_counts(file)
 
     
 
