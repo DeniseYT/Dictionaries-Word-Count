@@ -1,25 +1,47 @@
-"""Count words in file."""
+def word_counts(file):
+    """Count words in file."""
 
-input_file = open('./test.txt')
-# input_file = open('./twain.txt')
+    poem = open(file)
 
-word_counts = {}
+    word_counts = {}
 
-for line in input_file:
-    # strip whitespace from the end of the line, and then split it into words
-    # (the default argument in both rstrip() and split() is whitespace)
-    line = line.rstrip()
-    words = line.split()
+    for line in poem:
+        line = line.rstrip()
+        words= line.split(" ")
 
-    for word in words:
-        # Set the word count to whatever it was + 1; if it wasn't found at all,
-        # we'll use `.get(word, 0)` to return 0 if the word wasn't already in
-        # the dictionary
-        word_counts[word] = word_counts.get(word, 0) + 1
+        for word in words:
+            if word in word_counts:
+                word_counts[word] += 1
+            else:
+                word_counts[word] = 1
 
-# print each word and its count
-for word, count in word_counts.items():
-    print(word, count)
+    for key, value in word_counts.items():
+        print(key, value)
+
+    return word_counts
+
+word_counts("test.txt")
+
+
+
+
+# for line in input_file:
+#     # strip whitespace from the end of the line, and then split it into words
+#     # (the default argument in both rstrip() and split() is whitespace)
+#     line = line.rstrip()
+#     words = line.split()
+
+#     for word in words:
+#         # Set the word count to whatever it was + 1; if it wasn't found at all,
+#         # we'll use `.get(word, 0)` to return 0 if the word wasn't already in
+#         # the dictionary
+#         word_counts[word] = word_counts.get(word, 0) + 1
+
+# # print each word and its count
+# for word, count in word_counts.items():
+#     print(word, count)
+
+
 
 
 ########### Alternate solution, with functions! ###############
@@ -42,7 +64,7 @@ def tokenize(filename):
 
     return tokens
 
-print(tokenize("test.txt"))
+# print(tokenize("test.txt"))
 
 
 def count_words(words):
@@ -55,7 +77,7 @@ def count_words(words):
 
     return word_counts
 
-print(count_words("As I was going to St. Ives"))
+# print(count_words("As I was going to St. Ives"))
 
 
 
@@ -65,7 +87,7 @@ def print_words(word_counts):
     for word, count in word_counts.items():
         print (word, count)
 
-print_words(word_counts)
+# print_words(word_counts)
 
 # tokens = tokenize('test.txt')
 # word_counts = count_words(tokens)
