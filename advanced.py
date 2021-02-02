@@ -3,6 +3,40 @@
 
 import sys
 
+def word_counts(file):
+
+    poem = open(file)
+
+    word_counts = {}
+
+    for line in poem:
+        line = line.rstrip()
+        words = line.split(" ")
+
+        for word in words:
+            word = word.split(",.!?-#&()%@*/:$;.""")
+            word = word.lower()
+
+            if word in word_counts:
+                word_counts[word] += 1
+            
+            else:
+                word_counts[word] = 1
+
+    for key, value in word_counts.items:
+        print(key, value)
+    
+    return word_counts
+
+# get file from the command line
+filename = sys.argv[0]
+
+word_counts(filename)
+
+    
+
+
+
 
 def tokenize(filename):
     """Return list of words from file"""
